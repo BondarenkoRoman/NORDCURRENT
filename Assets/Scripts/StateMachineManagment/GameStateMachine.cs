@@ -1,35 +1,39 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using StateMachineManagment.Factory;
+using StateMachineManagment.GameStates;
+using StateMachineManagment.States;
 using Zenject;
 
-public class GameStateMachine : IInitializable, IStateSwitcher
+namespace StateMachineManagment
 {
-    [Inject] private readonly IStateFactory StateFactory;
-    private Dictionary<Type, IState> States;
-    private IState CurrentState;
+    public class GameStateMachine : IInitializable, IStateSwitcher
+    {
+        [Inject] private readonly IStateFactory StateFactory;
+        private Dictionary<Type, IState> States;
+        private IState CurrentState;
     
-    public void Initialize()
-    {
-        States = new Dictionary<Type, IState>
+        public void Initialize()
         {
-            {typeof(BootstrapState), StateFactory.GetState<BootstrapState>()},
-        };
+            States = new Dictionary<Type, IState>
+            {
+                {typeof(BootstrapState), StateFactory.GetState<BootstrapState>()},
+            };
 
-        SwitchState<BootstrapState>();
-    }
+            SwitchState<BootstrapState>();
+        }
 
-    public void SwitchState<T>() where T : class, IState
-    {
-        if(CurrentState is T)
-            return;
+        public void SwitchState<T>() where T : class, IState
+        {
+            if(CurrentState is T)
+                return;
         
-        if (States.TryGetValue(typeof(T), out IState state))
-        {
-            CurrentState?.Exit();
-            CurrentState = state;
-            CurrentState.Enter();
+            if (States.TryGetValue(typeof(T), out IState state))
+            {
+                CurrentState?.Exit();
+                CurrentState = state;
+                CurrentState.Enter();
+            }
         }
     }
 }

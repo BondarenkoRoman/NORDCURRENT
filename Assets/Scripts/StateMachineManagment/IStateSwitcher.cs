@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using StateMachineManagment.States;
 
-public interface IStateSwitcher 
+namespace StateMachineManagment
 {
-    public void SwitchState<T>() where T : class, IState;
+    public interface IStateSwitcher 
+    {
+        public void SwitchState<T>() where T : class, IState;
+    }
 }

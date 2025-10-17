@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using StateMachineManagment.States;
 
-public class BootstrapState : IState
+namespace StateMachineManagment.GameStates
 {
-    public void Enter() { }
+    public class BootstrapState : IState
+    {
+        public void Enter() { }
 
-    public void Exit() { }
+        public void Exit() { }
+    }
 }

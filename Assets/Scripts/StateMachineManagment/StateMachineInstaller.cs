@@ -1,29 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using StateMachineManagment.Factory;
+using StateMachineManagment.GameStates;
 using Zenject;
 
-public class StateMachineInstaller : MonoInstaller
+namespace StateMachineManagment
 {
-    public override void InstallBindings()
+    public class StateMachineInstaller : MonoInstaller
     {
-        BindStates();
-        BindFactory();
-        BindStateMachine();
-    }
+        public override void InstallBindings()
+        {
+            BindStates();
+            BindFactory();
+            BindStateMachine();
+        }
 
-    private void BindStates()
-    {
-        Container.Bind<BootstrapState>().AsSingle().NonLazy();
-    }
+        private void BindStates()
+        {
+            Container.Bind<BootstrapState>().AsSingle().NonLazy();
+        }
     
-    private void BindFactory()
-    {
-        Container.BindInterfacesAndSelfTo<StateFactory>().AsSingle();
-    }
+        private void BindFactory()
+        {
+            Container.BindInterfacesAndSelfTo<StateFactory>().AsSingle();
+        }
 
-    private void BindStateMachine()
-    {
-        Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle();
+        private void BindStateMachine()
+        {
+            Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle();
+        }
     }
 }

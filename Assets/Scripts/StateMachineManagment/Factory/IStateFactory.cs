@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using StateMachineManagment.States;
 
-public interface IStateFactory
+namespace StateMachineManagment.Factory
 {
-    T GetState<T>() where T : class, IState;
+    public interface IStateFactory
+    {
+        T GetState<T>() where T : class, IState;
+    }
 }
