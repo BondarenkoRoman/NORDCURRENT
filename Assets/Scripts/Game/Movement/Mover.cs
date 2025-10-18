@@ -1,4 +1,4 @@
-qweusing UnityEngine;
+using UnityEngine;
 
 namespace Game.Movement
 {
