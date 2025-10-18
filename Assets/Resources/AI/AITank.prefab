@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 5277965795212089710}
   - component: {fileID: 7292645001213406033}
   - component: {fileID: 2529888871481956770}
+  - component: {fileID: 3986734092831509281}
+  - component: {fileID: 4171544582313929508}
   m_Layer: 0
   m_Name: AITank
   m_TagString: Untagged
@@ -244,6 +246,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3986734092831509281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4483203334185783444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01402ce5d6dce4648b8cb484166fb6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turnRadius: 2
+  _speed: 2
+--- !u!114 &4171544582313929508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4483203334185783444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a7c9c4c3320a8499158a0996831b03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minChangeInterval: 1.5
+  _maxChangeInterval: 3.5
 --- !u!1 &5806894785232654343
 GameObject:
   m_ObjectHideFlags: 0
