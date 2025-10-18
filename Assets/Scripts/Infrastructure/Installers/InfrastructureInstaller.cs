@@ -1,3 +1,4 @@
+using Infrastructure.AssetManagement;
 using Zenject;
 
 namespace Infrastructure.Installers
@@ -6,6 +7,7 @@ namespace Infrastructure.Installers
     {
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle();
         }
     }
 }
