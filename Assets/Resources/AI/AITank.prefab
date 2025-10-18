@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 2529888871481956770}
   - component: {fileID: 3986734092831509281}
   - component: {fileID: 4171544582313929508}
+  - component: {fileID: 7409977003988253082}
   m_Layer: 0
   m_Name: AITank
   m_TagString: Untagged
@@ -274,6 +275,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minChangeInterval: 1.5
   _maxChangeInterval: 3.5
+--- !u!114 &7409977003988253082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4483203334185783444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2aa8e5c3254ce44a7f9855d4c1e367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5806894785232654343
 GameObject:
   m_ObjectHideFlags: 0
