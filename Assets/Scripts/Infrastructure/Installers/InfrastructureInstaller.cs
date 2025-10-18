@@ -11,6 +11,7 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SpawnService>().AsSingle();
         }
     }
 }

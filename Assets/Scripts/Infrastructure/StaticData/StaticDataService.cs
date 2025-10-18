@@ -11,7 +11,7 @@ public class StaticDataService : IStaticDataService
     
     public void Initialize()
     {
-        SpawnPointConfig = Resources.Load<SpawnPointConfig>(AssetPath.SpawnPointsConfig);
+        SpawnPointConfig = _assets.Load<SpawnPointConfig>(AssetPath.SpawnPointsConfig);
     }
 
 }

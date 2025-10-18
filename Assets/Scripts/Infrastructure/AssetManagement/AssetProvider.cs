@@ -9,11 +9,23 @@ namespace Infrastructure.AssetManagement
       var prefab = Resources.Load<GameObject>(path);
       return Object.Instantiate(prefab, at, Quaternion.identity);
     }
+    
+    public GameObject Instantiate(string path, Vector3 at, Quaternion quaternion)
+    {
+      var prefab = Resources.Load<GameObject>(path);
+      return Object.Instantiate(prefab, at, quaternion);
+    }
 
     public GameObject Instantiate(string path)
     {
       var prefab = Resources.Load<GameObject>(path);
       return Object.Instantiate(prefab);
     }
+
+    public T Load<T>(string path) where T : Object
+    {
+      return Resources.Load<T>(AssetPath.SpawnPointsConfig);
+    }
+
   }
 }
