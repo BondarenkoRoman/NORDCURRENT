@@ -18,6 +18,7 @@ namespace StateMachineManagment
             States = new Dictionary<Type, IState>
             {
                 {typeof(BootstrapState), StateFactory.GetState<BootstrapState>()},
+                {typeof(GameLoadingState), StateFactory.GetState<GameLoadingState>()},
             };
 
             SwitchState<BootstrapState>();
