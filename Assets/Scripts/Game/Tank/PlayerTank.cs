@@ -9,7 +9,6 @@ namespace Game.Tank
         {
             if (other.TryGetComponent<Tank>(out var Tank))
             {
-                Debug.LogError("Player ymer");
                 _stateMachine.ChangeState<DeathState>();
             }
         }
