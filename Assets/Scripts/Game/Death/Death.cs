@@ -1,15 +1,16 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Death : MonoBehaviour
+namespace Game.Death
 {
-    public event Action<Death> Dead;
-
-    public void Die()
+    public class Death : MonoBehaviour
     {
-        Dead.Invoke(this);
-        Destroy(gameObject);
+        public event Action<Death> Dead;
+
+        public void Die()
+        {
+            Dead?.Invoke(this);
+            Destroy(gameObject);
+        }
     }
 }

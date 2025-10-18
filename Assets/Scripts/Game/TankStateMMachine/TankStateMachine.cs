@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using Game.TankStateMMachine.TankStates;
+using StateMachineManagment.States;
+
+namespace Game.TankStateMMachine
+{
+    public class TankStateMachine
+    {
+        private Dictionary<Type, IState> States;
+        private IState _activeState;
+    
+        public TankStateMachine(Tank.Tank tank)
+        {
+            States = new Dictionary<Type, IState>()
+            {
+                {typeof(MoveState), new MoveState(tank)},
+                {typeof(ForceRotatorState), new ForceRotatorState(tank, this)},
+                {typeof(DeathState), new DeathState(tank)},
+            };
+        }
+
+        public void Tick()
+        {
+            if (_activeState is IUpdateable updateableState)
+                updateableState.Update();
+        }
+
+        public void ChangeState<IState>()
+        {
+            if (_activeState is IState)
+                return;
+
+            if (States.TryGetValue(typeof(IState), out var newState))
+            {
+                _activeState?.Exit();
+                _activeState = newState;
+                _activeState.Enter();
+            }
+        }
+    }
+}

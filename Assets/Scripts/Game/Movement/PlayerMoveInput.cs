@@ -1,7 +1,6 @@
-using Game.Movement;
 using UnityEngine;
 
-namespace Game.Player
+namespace Game.Movement
 {
     public class PlayerMoveInput : MonoBehaviour, IMoveInput
     {

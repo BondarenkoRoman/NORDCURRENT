@@ -1,7 +1,6 @@
-using Game.Movement;
 using UnityEngine;
 
-namespace Game.AIPlayer
+namespace Game.Movement
 {
     public class AIMoveInput : MonoBehaviour, IMoveInput
     {
