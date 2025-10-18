@@ -1,4 +1,5 @@
 using Infrastructure.AssetManagement;
+using Infrastructure.GameFactories;
 using Zenject;
 
 namespace Infrastructure.Installers
@@ -8,6 +9,7 @@ namespace Infrastructure.Installers
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<AssetProvider>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameFactory>().AsSingle();
         }
     }
 }
