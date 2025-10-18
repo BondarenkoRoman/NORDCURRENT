@@ -1,10 +1,12 @@
+using Infrastructure.GameFactories;
 using UnityEngine;
+using Zenject;
 
 namespace Game.Shootin
 {
     public class Shooting : MonoBehaviour
     {
-        [SerializeField] private Bullet _bullet;
+        [Inject] private readonly IGameFactory _gameFactory;
         [SerializeField] private Transform bulletSpawnPoint;
         [SerializeField] private float reloadTime = 5.0f;
         private IShootingInput shootingInput;
@@ -41,7 +43,7 @@ namespace Game.Shootin
 
         private void Shot()
         {
-            Instantiate(_bullet, bulletSpawnPoint.transform.position, transform.rotation);
+            _gameFactory.CreateBullet(bulletSpawnPoint.transform.position, transform.rotation);
         }
 
         private void StartReload()

@@ -19,7 +19,7 @@ namespace StateMachineManagment.GameStates
             _gameFactory.CreateEnvironment();
             _spawnService.CreateSpawners();
             CreatePlayer();
-            CreateAITanks();// can spawn over player
+         //   CreateAITanks();// can spawn over player
         }
 
         private void CreatePlayer()
