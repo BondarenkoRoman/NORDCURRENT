@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 5170043640632776724}
   - component: {fileID: 1750478647311340573}
   - component: {fileID: 8507162569027426755}
+  - component: {fileID: 5947604747253311728}
+  - component: {fileID: 7328678132353272539}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -216,6 +218,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e11f3682a7447f4b80ba0bd5e75e3f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5947604747253311728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187672938146714847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346eee2588bc28e4f9679670d50ea655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bullet: {fileID: 1659375827798008496, guid: ce6b048b66704d748adfd5e550cbfee0, type: 3}
+  bulletSpawnPoint: {fileID: 3821893125000058728}
+  reloadTime: 5
+--- !u!114 &7328678132353272539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2187672938146714847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07236e70e2ef8c541a1844b5fdbbbf16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4773580939324117495

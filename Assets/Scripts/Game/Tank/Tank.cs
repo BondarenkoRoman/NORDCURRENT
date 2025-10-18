@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Game.Obstacle
+namespace Game.Tank
 {
-    public class Obstacle : MonoBehaviour
+    public class Tank : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()

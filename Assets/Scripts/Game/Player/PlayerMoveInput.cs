@@ -1,20 +1,24 @@
+using Game.Movement;
 using UnityEngine;
 
-public class PlayerMoveInput : MonoBehaviour, IMoveInput
+namespace Game.Player
 {
-    public float GetMoveInput()
+    public class PlayerMoveInput : MonoBehaviour, IMoveInput
     {
-        float moveInput = 0f;
-        if (Input.GetKey(KeyCode.W)) moveInput += 1f;
-        if (Input.GetKey(KeyCode.S)) moveInput -= 1f;
-        return moveInput;
-    }
+        public float GetMoveInput()
+        {
+            float moveInput = 0f;
+            if (Input.GetKey(KeyCode.W)) moveInput += 1f;
+            if (Input.GetKey(KeyCode.S)) moveInput -= 1f;
+            return moveInput;
+        }
 
-    public float GetRotateInput()
-    {
-        float rotateInput = 0f;
-        if (Input.GetKey(KeyCode.A)) rotateInput += 1f; 
-        if (Input.GetKey(KeyCode.D)) rotateInput -= 1f; 
-        return rotateInput;
+        public float GetRotateInput()
+        {
+            float rotateInput = 0f;
+            if (Input.GetKey(KeyCode.A)) rotateInput += 1f; 
+            if (Input.GetKey(KeyCode.D)) rotateInput -= 1f; 
+            return rotateInput;
+        }
     }
 }

@@ -1,7 +1,8 @@
-using UnityEngine;
-
-public interface IMoveInput
+namespace Game.Movement
 {
-    float GetMoveInput();
-    float GetRotateInput();
+    public interface IMoveInput
+    {
+        float GetMoveInput();
+        float GetRotateInput();
+    }
 }
