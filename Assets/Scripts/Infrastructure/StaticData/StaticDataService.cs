@@ -8,9 +8,8 @@ public class StaticDataService : IStaticDataService
 {
     [Inject] private readonly IAssetProvider _assets;
     public SpawnPointConfig SpawnPointConfig { get; private set; }
-
-    //интерфейс под лоад, так надо надо будет для загрузки инфы из префсов
-    public void Load()
+    
+    public void Initialize()
     {
         SpawnPointConfig = Resources.Load<SpawnPointConfig>(AssetPath.SpawnPointsConfig);
     }
