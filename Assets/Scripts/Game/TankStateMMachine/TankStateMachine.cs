@@ -26,12 +26,12 @@ namespace Game.TankStateMMachine
                 updateableState.Update();
         }
 
-        public void ChangeState<IState>()
+        public void ChangeState<T>() where T : class, IState
         {
-            if (_activeState is IState)
+            if (_activeState is T)
                 return;
 
-            if (States.TryGetValue(typeof(IState), out var newState))
+            if (States.TryGetValue(typeof(T), out var newState))
             {
                 _activeState?.Exit();
                 _activeState = newState;

@@ -7,11 +7,9 @@ namespace Game.ForcRotator
     public class ForceRotator : MonoBehaviour
     {
         [SerializeField] private float _turnAngularSpeedDeg = 360f;
-        [SerializeField] private float _turnAroundCooldown = 0.2f;
 
         private bool _isTurningAround;
         private float _turnTargetAngleDeg;
-        private float _turnCooldownUntil;
 
         public event Action OnRotationFinished;
 
@@ -41,7 +39,6 @@ namespace Game.ForcRotator
         private void TurnAroundFinish()
         {
             _isTurningAround = false;
-            _turnCooldownUntil = Time.time + _turnAroundCooldown;
             OnRotationFinished.Invoke();
         }
     }
