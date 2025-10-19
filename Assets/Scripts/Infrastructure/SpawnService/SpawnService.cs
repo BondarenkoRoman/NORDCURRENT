@@ -1,6 +1,6 @@
 using System.Collections;
-using Game.Death;
 using Game.SpawnerPoints;
+using Game.Tank;
 using Infrastructure;
 using Infrastructure.GameFactories;
 using Infrastructure.SpawnPointServicies;
@@ -23,8 +23,8 @@ public class SpawnService : ISpawnService
             var position = spawnPoint.transform.position;
             var tankGo = _gameFactory.CreatePlayerTank(position, 
                 Quaternion.AngleAxis(LookAtCenterAngle(position), Vector3.forward));
-            var death = tankGo.GetComponent<Death>();
-            death.Dead +=() => _coroutineRunner.Run(RespawnPlayer());
+            var tank = tankGo.GetComponent<Tank>();
+            tank.Dead +=() => _coroutineRunner.Run(RespawnPlayer());
         }
     }
 
@@ -50,8 +50,8 @@ public class SpawnService : ISpawnService
             var position = spawnPoint.transform.position;
             var tankGo = _gameFactory.CreateAITank(position, 
                 Quaternion.AngleAxis(LookAtCenterAngle(position), Vector3.forward));
-            var death = tankGo.GetComponent<Death>();
-            death.Dead += () => _coroutineRunner.Run(RespawnAITank());
+            var tank = tankGo.GetComponent<Tank>();
+            tank.Dead += () => _coroutineRunner.Run(RespawnAITank());
         }
     }
 

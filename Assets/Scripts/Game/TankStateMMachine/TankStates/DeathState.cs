@@ -12,7 +12,7 @@ namespace Game.TankStateMMachine.TankStates
         }
         public void Enter() 
         { 
-            _tank.Death.Die();
+            _tank.Die();
         }
 
         public void Exit() {}

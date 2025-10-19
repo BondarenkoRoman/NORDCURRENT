@@ -6,16 +6,16 @@ using Infrastructure.SaveLoad;
 using UnityEngine;
 using Zenject;
 using Infrastructure.GameFactories;
+using System;
 
 namespace Game.Tank
 {
     public class Tank : MonoBehaviour, IProgressSaver
     {
-
         [Inject] private readonly IGameFactory _gameFactory;
         public Mover Mover;
         public ForceRotator ForceRotator;
-        public Death.Death Death;
+        public event Action Dead;
 
         protected TankStateMachine _stateMachine;
 
@@ -43,9 +43,11 @@ namespace Game.Tank
 
         public virtual void Save(GameProgressData gameProgressData){}
         
-        private void OnDestroy()
+        public void Die()
         {
             _gameFactory?.RemoveProgressSaver(this);
+            Dead?.Invoke();
+            Destroy(gameObject);
         }
     }
 }

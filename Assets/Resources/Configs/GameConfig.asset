@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b99757b88aa4704b9a8a5f62138f73e, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  RespawnDelay: 1
+  RespawnDelay: 5
+  EnemyCount: 4

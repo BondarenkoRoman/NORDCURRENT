@@ -47,7 +47,6 @@ GameObject:
   - component: {fileID: 8507162569027426755}
   - component: {fileID: 5947604747253311728}
   - component: {fileID: 7328678132353272539}
-  - component: {fileID: 204017399653163029}
   - component: {fileID: 7055434570782281278}
   m_Layer: 0
   m_Name: Player
@@ -234,9 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346eee2588bc28e4f9679670d50ea655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 1659375827798008496, guid: ce6b048b66704d748adfd5e550cbfee0, type: 3}
   bulletSpawnPoint: {fileID: 3821893125000058728}
-  reloadTime: 5
+  reloadTime: 1
 --- !u!114 &7328678132353272539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,18 +245,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07236e70e2ef8c541a1844b5fdbbbf16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &204017399653163029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2187672938146714847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d2aa8e5c3254ce44a7f9855d4c1e367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7055434570782281278
@@ -275,7 +261,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mover: {fileID: 1750478647311340573}
   ForceRotator: {fileID: 0}
-  Death: {fileID: 204017399653163029}
 --- !u!1 &4773580939324117495
 GameObject:
   m_ObjectHideFlags: 0
