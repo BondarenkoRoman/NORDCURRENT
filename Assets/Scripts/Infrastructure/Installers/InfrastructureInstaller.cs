@@ -20,6 +20,7 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<SpawnPointService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameSessionService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SpawnService>().AsSingle();
         }
 
         private void CoroutineRunner()

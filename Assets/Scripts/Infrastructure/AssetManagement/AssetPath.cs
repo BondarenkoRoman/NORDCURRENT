@@ -8,5 +8,6 @@ namespace Infrastructure.AssetManagement
     public const string Environment = "Environment/Environment";
     public const string SpawnPoint = "SpawnPoint/SpawnPoint";
     public const string SpawnPointsConfig = "Configs/SpawnPointsConfig";
+    public const string GameConfig = "Configs/GameConfig";
   }
 }

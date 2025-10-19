@@ -5,11 +5,11 @@ namespace Game.Death
 {
     public class Death : MonoBehaviour
     {
-        public event Action<Death> Dead;
+        public event Action Dead;
 
         public void Die()
         {
-            Dead?.Invoke(this);
+            Dead?.Invoke();
             Destroy(gameObject);
         }
     }

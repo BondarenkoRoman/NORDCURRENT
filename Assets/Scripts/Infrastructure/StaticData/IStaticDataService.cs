@@ -5,5 +5,6 @@ namespace Infrastructure.StaticData
     public interface IStaticDataService : IInitialize.IInitialize
     {
         SpawnPointConfig SpawnPointConfig { get; }
+        public GameConfig GameConfig { get; }
     }
 }

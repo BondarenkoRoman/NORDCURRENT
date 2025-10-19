@@ -24,7 +24,7 @@ namespace Infrastructure.AssetManagement
 
     public T Load<T>(string path) where T : Object
     {
-      return Resources.Load<T>(AssetPath.SpawnPointsConfig);
+      return Resources.Load<T>(path);
     }
 
   }
