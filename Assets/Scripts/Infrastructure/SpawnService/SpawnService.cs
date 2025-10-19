@@ -23,7 +23,7 @@ public class SpawnService : ISpawnService
         Vector3 spawnPosition;
         Quaternion spawnRotation;
         var tankData = _gameSessionService.GameProgressData.PlayerTankData;
-        bool containsTankData = _gameSessionService.GameProgressData.PlayerTankData != null;
+        bool containsTankData = tankData != null;
         
         if (containsTankData)
         {
@@ -38,7 +38,7 @@ public class SpawnService : ISpawnService
             spawnPosition = spawnData.Value.position;
             spawnRotation = spawnData.Value.rotation;
         }
-        
+
         var tankGo = _gameFactory.CreatePlayerTank(spawnPosition, spawnRotation);
         SetupTank(tankGo, () => _coroutineRunner.Run(RespawnPlayer()));
     }
@@ -51,10 +51,23 @@ public class SpawnService : ISpawnService
     
     public void AddAITanks()
     {
-        for (int i = 0; i < _staticDataService.GameConfig.EnemyCount; i++)
-        {
+        int enemyCount = _staticDataService.GameConfig.EnemyCount;
+        int savedTanksCount = _gameSessionService.GameProgressData.AiTanksData.Count;
+        
+        for (int i = 0; i < Mathf.Min(enemyCount, savedTanksCount); i++)
+            AddAITankFromSave(i);
+        for (int i = savedTanksCount; i < enemyCount; i++)
             AddAITank();
-        }
+    }
+
+    private void AddAITankFromSave(int index)
+    {
+        var tankData = _gameSessionService.GameProgressData.AiTanksData[index];
+        Vector3 spawnPosition = tankData.Position.AsUnityVector();
+        Quaternion spawnRotation = Quaternion.AngleAxis(tankData.AngleRotation, Vector3.forward);
+        
+        var tankGo = _gameFactory.CreateAITank(spawnPosition, spawnRotation);
+        SetupTank(tankGo, () => _coroutineRunner.Run(RespawnAITank()));
     }
 
     private void AddAITank()

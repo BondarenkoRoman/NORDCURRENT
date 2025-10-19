@@ -25,7 +25,7 @@ namespace Infrastructure.SaveLoad
 
         private void SaveProgress()
         {
-            _gameSessionService.GameProgressData.AiTanksData.Clear();
+            _gameSessionService.ClearProgressData();
             
             foreach (IProgressSaver progressSaver in _gameFactory.ProgressSavers)
             {

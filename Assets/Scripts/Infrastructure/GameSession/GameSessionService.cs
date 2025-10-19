@@ -5,5 +5,11 @@ namespace Infrastructure.GameSession
     public class GameSessionService : IGameSessionService
     {
         public GameProgressData GameProgressData { get; set; } = new GameProgressData();
+
+        public void ClearProgressData()
+        {
+            GameProgressData.PlayerTankData = null;
+            GameProgressData.AiTanksData.Clear();
+        }
     }
 }
