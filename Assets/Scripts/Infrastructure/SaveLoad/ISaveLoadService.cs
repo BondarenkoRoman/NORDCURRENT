@@ -1,8 +1,5 @@
 
 namespace Infrastructure.SaveLoad
 {
-    public interface ISaveLoadService : IInitialize.IInitialize
-    {
-
-    }
+    public interface ISaveLoadService : IInitialize.IInitialize {}
 }
