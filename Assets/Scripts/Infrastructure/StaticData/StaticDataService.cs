@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using Infrastructure.AssetManagement;
-using UnityEngine;
+using ScriptableObjects;
 using Zenject;
 
-public class StaticDataService : IStaticDataService
+namespace Infrastructure.StaticData
 {
-    [Inject] private readonly IAssetProvider _assets;
-    public SpawnPointConfig SpawnPointConfig { get; private set; }
-    
-    public void Initialize()
+    public class StaticDataService : IStaticDataService
     {
-        SpawnPointConfig = _assets.Load<SpawnPointConfig>(AssetPath.SpawnPointsConfig);
-    }
+        [Inject] private readonly IAssetProvider _assets;
+        public SpawnPointConfig SpawnPointConfig { get; private set; }
+    
+        public void Initialize()
+        {
+            SpawnPointConfig = _assets.Load<SpawnPointConfig>(AssetPath.SpawnPointsConfig);
+        }
 
+    }
 }

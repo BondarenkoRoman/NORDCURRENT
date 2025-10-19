@@ -1,4 +1,6 @@
 using Game.TankStateMMachine.TankStates;
+using Infrastructure.Data;
+using Infrastructure.SaveLoad;
 using UnityEngine;
 
 namespace Game.Tank
@@ -11,6 +13,16 @@ namespace Game.Tank
             {
                 _stateMachine.ChangeState<DeathState>();
             }
+        }
+
+        public override void Save(GameProgressData gameProgressData)
+        {
+            TankPositionData playerData = new TankPositionData()
+            {
+                Position = transform.position.AsVectorData(),
+                Rotation = transform.eulerAngles.AsVectorData()
+            };
+            gameProgressData.PlayerTankData = playerData;
         }
     }
 }

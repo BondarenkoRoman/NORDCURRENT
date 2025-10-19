@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using ScriptableObjects;
 
-public interface IStaticDataService : IInitialize
+namespace Infrastructure.StaticData
 {
-    SpawnPointConfig SpawnPointConfig { get; }
+    public interface IStaticDataService : IInitialize.IInitialize
+    {
+        SpawnPointConfig SpawnPointConfig { get; }
+    }
 }

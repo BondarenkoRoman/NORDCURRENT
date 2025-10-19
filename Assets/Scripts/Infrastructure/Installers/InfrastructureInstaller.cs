@@ -1,5 +1,9 @@
 using Infrastructure.AssetManagement;
 using Infrastructure.GameFactories;
+using Infrastructure.GameSession;
+using Infrastructure.SaveLoad;
+using Infrastructure.SpawnerServicies;
+using Infrastructure.StaticData;
 using Zenject;
 
 namespace Infrastructure.Installers
@@ -12,6 +16,8 @@ namespace Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<GameFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<StaticDataService>().AsSingle();
             Container.BindInterfacesAndSelfTo<SpawnService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameSessionService>().AsSingle();
         }
     }
 }

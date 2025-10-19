@@ -1,11 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-[CreateAssetMenu(fileName = nameof(SpawnPointConfig), menuName = "ScriptableObjects/SpawnPointConfig")]
-public class SpawnPointConfig : ScriptableObject
+namespace ScriptableObjects
 {
-    public List<Vector3> SpawnPointPositions;
+    [CreateAssetMenu(fileName = nameof(SpawnPointConfig), menuName = "ScriptableObjects/SpawnPointConfig")]
+    public class SpawnPointConfig : ScriptableObject
+    {
+        public List<Vector3> SpawnPointPositions;
+    }
 }

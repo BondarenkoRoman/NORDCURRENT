@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IInitialize
+namespace Infrastructure.IInitialize
 {
-    void Initialize();
+    public interface IInitialize
+    {
+        void Initialize();
+    }
 }

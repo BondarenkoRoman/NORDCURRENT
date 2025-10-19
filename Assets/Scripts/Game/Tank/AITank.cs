@@ -1,7 +1,11 @@
 using Game.Obstaclies;
 using Game.Shootin;
 using Game.TankStateMMachine.TankStates;
+using Infrastructure.Data;
+using Infrastructure.GameFactories;
+using Infrastructure.SaveLoad;
 using UnityEngine;
+using Zenject;
 
 namespace Game.Tank
 {
@@ -21,5 +25,17 @@ namespace Game.Tank
                 _stateMachine.ChangeState<DeathState>();
             }
         }
+        
+        public override void Save(GameProgressData gameProgressData)
+        {
+            TankPositionData aiTankData = new TankPositionData()
+            {
+                Position = transform.position.AsVectorData(),
+                Rotation = transform.eulerAngles.AsVectorData()
+            };
+            
+            gameProgressData.AiTanksData.Add(aiTankData);
+        }
+        
     }
 }

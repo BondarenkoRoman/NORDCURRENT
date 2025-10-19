@@ -2,12 +2,17 @@ using Game.ForcRotator;
 using Game.Movement;
 using Game.TankStateMMachine;
 using Game.TankStateMMachine.TankStates;
+using Infrastructure.SaveLoad;
 using UnityEngine;
+using Zenject;
+using Infrastructure.GameFactories;
 
 namespace Game.Tank
 {
-    public class Tank : MonoBehaviour
+    public class Tank : MonoBehaviour, IProgressSaver
     {
+
+        [Inject] private readonly IGameFactory _gameFactory;
         public Mover Mover;
         public ForceRotator ForceRotator;
         public Death.Death Death;
@@ -35,5 +40,12 @@ namespace Game.Tank
         }
 
         protected virtual void TriggerEnter2DHandler(Collider2D other){}
+
+        public virtual void Save(GameProgressData gameProgressData){}
+        
+        private void OnDestroy()
+        {
+            _gameFactory?.RemoveProgressSaver(this);
+        }
     }
 }
