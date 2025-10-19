@@ -25,19 +25,30 @@ namespace Infrastructure.SaveLoad
 
         private void SaveProgress()
         {
-            _gameFactory.Cleanup();
-        
+            _gameSessionService.GameProgressData.AiTanksData.Clear();
+            
             foreach (IProgressSaver progressSaver in _gameFactory.ProgressSavers)
+            {
                 if (progressSaver != null && (progressSaver as MonoBehaviour) != null)
+                {
                     progressSaver.Save(_gameSessionService.GameProgressData);
-
+                }
+            }
+            
             PlayerPrefs.SetString(ProgressKey, _gameSessionService.GameProgressData.ToJson());
         }
 
         private void LoadProgress()
         {
-            _gameSessionService.GameProgressData = PlayerPrefs.GetString(ProgressKey)?
-                .ToDeserialized<GameProgressData>();
+            string savedData = PlayerPrefs.GetString(ProgressKey);
+            if (!string.IsNullOrEmpty(savedData))
+            {
+                var loadedData = savedData.ToDeserialized<GameProgressData>();
+                if (loadedData != null)
+                {
+                    _gameSessionService.GameProgressData = loadedData;
+                }
+            }
         }
     }
 }
