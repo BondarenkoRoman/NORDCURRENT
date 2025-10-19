@@ -16,7 +16,7 @@ namespace Infrastructure.SaveLoad
     public class TankPositionData
     {
         public Vector3Data Position;
-        public Vector3Data Rotation;
+        public float AngleRotation;
     }
 
 }

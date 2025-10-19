@@ -31,7 +31,7 @@ namespace Game.Tank
             TankPositionData aiTankData = new TankPositionData()
             {
                 Position = transform.position.AsVectorData(),
-                Rotation = transform.eulerAngles.AsVectorData()
+                AngleRotation = Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg - 90f
             };
             gameProgressData.AiTanksData.Add(aiTankData);
         }
