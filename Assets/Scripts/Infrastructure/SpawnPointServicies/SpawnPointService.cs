@@ -6,9 +6,9 @@ using Infrastructure.StaticData;
 using UnityEngine;
 using Zenject;
 
-namespace Infrastructure.SpawnerServicies
+namespace Infrastructure.SpawnPointServicies
 {
-    public class SpawnService : ISpawnService
+    public class SpawnPointService : ISpawnPointService
     {
         [Inject] private readonly IStaticDataService _staticDataService; 
         [Inject] private readonly IGameFactory _gameFactory; 

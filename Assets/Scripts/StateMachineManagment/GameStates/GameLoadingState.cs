@@ -3,7 +3,7 @@ using Game.SpawnerPoints;
 using Game.Tank;
 using Infrastructure.AssetManagement;
 using Infrastructure.GameFactories;
-using Infrastructure.SpawnerServicies;
+using Infrastructure.SpawnPointServicies;
 using StateMachineManagment.States;
 using UnityEngine;
 using Zenject;
@@ -12,20 +12,20 @@ namespace StateMachineManagment.GameStates
 {
     public class GameLoadingState : IState
     {
-        [Inject] private readonly ISpawnService _spawnService;
+        [Inject] private readonly ISpawnPointService _spawnPointService;
         [Inject] private readonly IGameFactory _gameFactory;
         
         public void Enter()
         {
             _gameFactory.CreateEnvironment();
-            _spawnService.CreateSpawners();
+            _spawnPointService.CreateSpawners();
             AddPlayer();
             AddAITanks();
         }
 
         private void AddPlayer()
         {
-            SpawnPoint spawnPoint = _spawnService.GetFreeSpawnPoint();
+            SpawnPoint spawnPoint = _spawnPointService.GetFreeSpawnPoint();
             if (spawnPoint != null)
             {
                 var position = spawnPoint.transform.position;
@@ -38,7 +38,7 @@ namespace StateMachineManagment.GameStates
         {
             for (int i = 0; i < 4; i++)
             {
-                SpawnPoint spawnPoint = _spawnService.GetFreeSpawnPoint();
+                SpawnPoint spawnPoint = _spawnPointService.GetFreeSpawnPoint();
                 if (spawnPoint != null)
                 {
                     var position = spawnPoint.transform.position;

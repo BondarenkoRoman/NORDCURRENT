@@ -1,8 +1,8 @@
 using Game.SpawnerPoints;
 
-namespace Infrastructure.SpawnerServicies
+namespace Infrastructure.SpawnPointServicies
 {
-    public interface ISpawnService
+    public interface ISpawnPointService
     {
         public void CreateSpawners();
         SpawnPoint GetFreeSpawnPoint();
