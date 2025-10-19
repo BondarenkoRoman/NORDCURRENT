@@ -33,9 +33,7 @@ namespace Game.Tank
                 Position = transform.position.AsVectorData(),
                 Rotation = transform.eulerAngles.AsVectorData()
             };
-            
             gameProgressData.AiTanksData.Add(aiTankData);
         }
-        
     }
 }
