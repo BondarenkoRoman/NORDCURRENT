@@ -32,7 +32,7 @@ namespace Game.Movement
                 float moveStep = _speed * Time.deltaTime;
 
                 int obstacleMask = LayerMask.GetMask("Water");
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, moveStep + 0.1f, obstacleMask);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 0.5f + moveStep, obstacleMask);
 
                 if (hit.collider == null)
                 {

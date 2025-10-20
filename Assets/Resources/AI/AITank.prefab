@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3214639890596611466}
   - component: {fileID: 3799689159112400352}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4171544582313929508}
   - component: {fileID: 7971426414615617178}
   - component: {fileID: 5496607048767832913}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: AITank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,6 +289,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turnAngularSpeedDeg: 180
+  _blockingMask:
+    serializedVersion: 2
+    m_Bits: 192
+  _checkDistance: 1
+  _checkRadius: 0.45
 --- !u!114 &5496607048767832913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,7 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451065496051455000}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: bulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

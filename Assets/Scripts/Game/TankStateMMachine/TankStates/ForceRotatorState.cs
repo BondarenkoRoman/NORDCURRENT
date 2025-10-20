@@ -1,4 +1,7 @@
 using StateMachineManagment.States;
+using UnityEngine;
+using Game.Obstaclies;
+using Game.Tank;
 
 namespace Game.TankStateMMachine.TankStates
 {
@@ -6,6 +9,7 @@ namespace Game.TankStateMMachine.TankStates
     {
         private readonly Tank.Tank _tank;
         private readonly TankStateMachine _stateMachine;
+        
         public ForceRotatorState(Tank.Tank tank, TankStateMachine stateMachine)
         {
             _tank = tank;
@@ -27,6 +31,12 @@ namespace Game.TankStateMMachine.TankStates
 
         private void OnRotationFinishedListener()
         {
+            if (_tank.ForceRotator.IsForwardWayBlocked())
+            {
+                _tank.ForceRotator.TurnAroundStart();
+                return;
+            }
+
             _tank.ForceRotator.OnRotationFinished -= OnRotationFinishedListener;
             _stateMachine.ChangeState<MoveState>();
         }
