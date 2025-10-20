@@ -2,12 +2,13 @@ using System;
 using Infrastructure.Data;
 using Infrastructure.GameFactories;
 using Infrastructure.GameSession;
+using UnityEditor;
 using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.SaveLoad
 {
-    public class SaveLoadService : ISaveLoadService, IDisposable
+    public class SaveLoadService : ISaveLoadService
     {
         [Inject] private readonly IGameSessionService _gameSessionService;
         [Inject] private readonly IGameFactory _gameFactory;
@@ -16,17 +17,18 @@ namespace Infrastructure.SaveLoad
         public void Initialize()
         {
             LoadProgress();
+            Application.quitting += QuittingHandler;
         }
-    
-        public void Dispose()
+
+        private void QuittingHandler()
         {
             SaveProgress();
+            Application.quitting -= QuittingHandler;
         }
 
         private void SaveProgress()
         {
             _gameSessionService.ClearProgressData();
-            Debug.LogError(_gameFactory.ProgressSavers.Count);
             foreach (IProgressSaver progressSaver in _gameFactory.ProgressSavers)
             {
                 if (progressSaver != null && (progressSaver as MonoBehaviour) != null)
@@ -34,7 +36,6 @@ namespace Infrastructure.SaveLoad
                     progressSaver.Save(_gameSessionService.GameProgressData);
                 }
             }
-            Debug.LogError(_gameSessionService.GameProgressData.ToJson());
             PlayerPrefs.SetString(ProgressKey, _gameSessionService.GameProgressData.ToJson());
         }
 
@@ -44,7 +45,6 @@ namespace Infrastructure.SaveLoad
             if (!string.IsNullOrEmpty(savedData))
             {
                 var loadedData = savedData.ToDeserialized<GameProgressData>();
-                Debug.LogError(loadedData);
                 if (loadedData != null)
                 {
                     _gameSessionService.GameProgressData = loadedData;

@@ -10,6 +10,11 @@ namespace Infrastructure.SaveLoad
     {
         public TankPositionData PlayerTankData;
         public List<TankPositionData> AiTanksData = new List<TankPositionData>();
+
+        public bool IsPlayerTankDataValid()
+        {
+            return PlayerTankData != null && PlayerTankData.IsValid();
+        }
     }
     
     [Serializable]
@@ -17,6 +22,22 @@ namespace Infrastructure.SaveLoad
     {
         public Vector3Data Position;
         public float AngleRotation;
+
+        public bool IsValid()
+        {
+            if (Position == null)
+                return false;
+                
+            if (Mathf.Approximately(Position.X, 0f) && 
+                Mathf.Approximately(Position.Y, 0f) && 
+                Mathf.Approximately(Position.Z, 0f))
+                return false;
+                
+            if (Mathf.Approximately(AngleRotation, 0f))
+                return false;
+                
+            return true;
+        }
     }
 
 }

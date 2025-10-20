@@ -21,9 +21,7 @@ namespace Infrastructure.SpawnService
     
         public void AddPlayer()
         {
-            var tankData = _gameSessionService.GameProgressData.PlayerTankData;
-            bool containsTankData = tankData != null;
-            if (containsTankData)
+            if (_gameSessionService.GameProgressData.IsPlayerTankDataValid())
             {
                 AddPlayerAtSavedPoint();
             }
