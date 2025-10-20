@@ -14,6 +14,5 @@ namespace Infrastructure.GameFactories
         
         List<IProgressSaver> ProgressSavers { get; }
         void RemoveProgressSaver(IProgressSaver progressSaver);
-        void Cleanup();
     }
 }

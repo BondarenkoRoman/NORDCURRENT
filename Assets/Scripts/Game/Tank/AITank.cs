@@ -3,6 +3,7 @@ using Game.Shootin;
 using Game.TankStateMMachine.TankStates;
 using Infrastructure.Data;
 using Infrastructure.GameFactories;
+using Infrastructure.GameSession;
 using Infrastructure.SaveLoad;
 using UnityEngine;
 using Zenject;
@@ -11,6 +12,7 @@ namespace Game.Tank
 {
     public class AITank : Tank
     {
+        [Inject] private readonly IGameSessionService _gameSessionService;
         protected override void TriggerEnter2DHandler(Collider2D other)
         {
             if (other.TryGetComponent<Tank>(out var tank) ||
@@ -33,7 +35,8 @@ namespace Game.Tank
                 Position = transform.position.AsVectorData(),
                 AngleRotation = Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg - 90f
             };
-            gameProgressData.AiTanksData.Add(aiTankData);
+            _gameSessionService.GameProgressData.AiTanksData.Add(aiTankData);
+           // gameProgressData.AiTanksData.Add(aiTankData);
         }
     }
 }

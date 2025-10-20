@@ -21,7 +21,7 @@ namespace StateMachineManagment.GameStates
             _gameFactory.CreateEnvironment();
             _spawnPointService.CreateSpawners();
             _spawnService.AddPlayer();
-         //   _spawnService.AddAITanks();
+            _spawnService.AddAITanks();
         }
 
         public void Exit() { }

@@ -8,8 +8,7 @@ namespace Infrastructure.GameSession
 
         public void ClearProgressData()
         {
-            GameProgressData.PlayerTankData = null;
-            GameProgressData.AiTanksData.Clear();
+            GameProgressData = new GameProgressData();
         }
     }
 }

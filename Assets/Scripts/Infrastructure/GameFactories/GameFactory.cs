@@ -54,10 +54,5 @@ namespace Infrastructure.GameFactories
         {
             ProgressSavers.Remove(progressSaver);
         }
-        
-        public void Cleanup()
-        {
-            ProgressSavers.RemoveAll(saver => saver == null || (saver as MonoBehaviour) == null);
-        }
     }
 }

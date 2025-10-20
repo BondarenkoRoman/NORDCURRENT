@@ -26,7 +26,7 @@ namespace Infrastructure.SaveLoad
         private void SaveProgress()
         {
             _gameSessionService.ClearProgressData();
-            
+            Debug.LogError(_gameFactory.ProgressSavers.Count);
             foreach (IProgressSaver progressSaver in _gameFactory.ProgressSavers)
             {
                 if (progressSaver != null && (progressSaver as MonoBehaviour) != null)
@@ -34,7 +34,7 @@ namespace Infrastructure.SaveLoad
                     progressSaver.Save(_gameSessionService.GameProgressData);
                 }
             }
-            
+            Debug.LogError(_gameSessionService.GameProgressData.ToJson());
             PlayerPrefs.SetString(ProgressKey, _gameSessionService.GameProgressData.ToJson());
         }
 
@@ -44,6 +44,7 @@ namespace Infrastructure.SaveLoad
             if (!string.IsNullOrEmpty(savedData))
             {
                 var loadedData = savedData.ToDeserialized<GameProgressData>();
+                Debug.LogError(loadedData);
                 if (loadedData != null)
                 {
                     _gameSessionService.GameProgressData = loadedData;
