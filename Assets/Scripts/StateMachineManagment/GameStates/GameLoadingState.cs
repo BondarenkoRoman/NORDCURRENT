@@ -12,6 +12,7 @@ namespace StateMachineManagment.GameStates
 {
     public class GameLoadingState : IState
     {
+        [Inject] private readonly IStateSwitcher _stateSwitcher;
         [Inject] private readonly ISpawnPointService _spawnPointService;
         [Inject] private readonly IGameFactory _gameFactory;
         [Inject] private readonly ISpawnService _spawnService;
@@ -22,6 +23,8 @@ namespace StateMachineManagment.GameStates
             _spawnPointService.CreateSpawners();
             _spawnService.AddPlayer();
             _spawnService.AddAITanks();
+            
+            _stateSwitcher.SwitchState<GameplayState>();
         }
 
         public void Exit() { }

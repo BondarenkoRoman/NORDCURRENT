@@ -19,6 +19,7 @@ namespace StateMachineManagment
             {
                 {typeof(BootstrapState), StateFactory.GetState<BootstrapState>()},
                 {typeof(GameLoadingState), StateFactory.GetState<GameLoadingState>()},
+                {typeof(GameplayState), StateFactory.GetState<GameplayState>()},
             };
 
             SwitchState<BootstrapState>();

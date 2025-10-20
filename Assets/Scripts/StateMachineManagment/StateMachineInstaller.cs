@@ -17,6 +17,7 @@ namespace StateMachineManagment
         {
             Container.Bind<BootstrapState>().AsSingle().NonLazy();
             Container.Bind<GameLoadingState>().AsSingle().NonLazy();
+            Container.Bind<GameplayState>().AsSingle().NonLazy();
         }
     
         private void BindFactory()
