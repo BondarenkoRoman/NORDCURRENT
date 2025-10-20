@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnPointPositions:
   - {x: 7, y: 3, z: 0}
-  - {x: 0, y: 3, z: 0}
+  - {x: 2, y: 3, z: 0}
   - {x: -7, y: 3, z: 0}
   - {x: -7, y: -3, z: 0}
-  - {x: 0, y: -3, z: 0}
+  - {x: 2, y: -3, z: 0}
   - {x: 7, y: -3, z: 0}
+  - {x: -2, y: 3, z: 0}
+  - {x: -2, y: -3, z: 0}
+  - {x: 7, y: 0, z: 0}
+  - {x: -7, y: 0, z: 0}

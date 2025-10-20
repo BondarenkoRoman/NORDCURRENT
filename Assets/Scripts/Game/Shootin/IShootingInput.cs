@@ -2,6 +2,6 @@ namespace Game.Shootin
 {
     public interface IShootingInput
     {
-        bool IsShootIing {get;}
+        bool IsShooting {get;}
     }
 }

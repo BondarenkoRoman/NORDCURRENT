@@ -13,8 +13,7 @@ namespace Game.ForcRotator
         public event Action OnRotationFinished;
         private bool _isTurningAround;
         private float _turnTargetAngleDeg;
-
-
+        
         public void TurnAroundStart()
         {
             if (_isTurningAround)
@@ -41,7 +40,7 @@ namespace Game.ForcRotator
         private void TurnAroundFinish()
         {
             _isTurningAround = false;
-            OnRotationFinished.Invoke();
+            OnRotationFinished?.Invoke();
         }
 
         public bool IsForwardWayBlocked()

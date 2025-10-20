@@ -21,7 +21,7 @@ namespace Game.Shootin
         {
             ReloadingProcess();
         
-            if(IsShotAvaliable())
+            if(IsShotAvailable())
             {
                 Shot();
                 StartReload();
@@ -36,9 +36,9 @@ namespace Game.Shootin
             }
         }
 
-        private bool IsShotAvaliable()
+        private bool IsShotAvailable()
         {
-            return reloadTimer <= 0f && shootingInput.IsShootIing;
+            return reloadTimer <= 0f && shootingInput.IsShooting;
         }
 
         private void Shot()

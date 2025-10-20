@@ -4,6 +4,6 @@ namespace Game.Shootin
 {
      public class PlayerShootingInput : MonoBehaviour, IShootingInput
      {
-          public bool IsShootIing => Input.GetMouseButtonDown(0);
+          public bool IsShooting => Input.GetMouseButtonDown(0);
      }
 }

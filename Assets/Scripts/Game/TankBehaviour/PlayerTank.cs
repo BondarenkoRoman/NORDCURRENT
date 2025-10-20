@@ -24,7 +24,6 @@ namespace Game.TankBehaviour
                 Position = transform.position.AsVectorData(),
                 AngleRotation = Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg - 90f
             };
-            Debug.LogError("Do player Save "+playerData.Position.X);
             gameProgressData.PlayerTankData = playerData;
         }
     }
