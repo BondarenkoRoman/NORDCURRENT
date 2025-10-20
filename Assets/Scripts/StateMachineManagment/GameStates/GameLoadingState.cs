@@ -1,9 +1,9 @@
 using System;
 using Game.SpawnerPoints;
-using Game.Tank;
 using Infrastructure.AssetManagement;
 using Infrastructure.GameFactories;
 using Infrastructure.SpawnPointServicies;
+using Infrastructure.SpawnService;
 using StateMachineManagment.States;
 using UnityEngine;
 using Zenject;
@@ -14,7 +14,7 @@ namespace StateMachineManagment.GameStates
     {
         [Inject] private readonly ISpawnPointService _spawnPointService;
         [Inject] private readonly IGameFactory _gameFactory;
-        [Inject] private readonly SpawnService _spawnService;
+        [Inject] private readonly ISpawnService _spawnService;
         
         public void Enter()
         {

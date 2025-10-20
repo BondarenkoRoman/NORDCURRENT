@@ -4,6 +4,7 @@ namespace Game.Movement
 {
     public class Mover : MonoBehaviour
     {
+        [SerializeField] private LayerMask _blockingMask;
         [SerializeField] protected float _turnRadius = 2f;
         [SerializeField] private float _speed = 5f;
         protected IMoveInput moveInput;
@@ -31,8 +32,7 @@ namespace Game.Movement
                 Vector3 dir = Forward * Mathf.Sign(moveInput);
                 float moveStep = _speed * Time.deltaTime;
 
-                int obstacleMask = LayerMask.GetMask("Water");
-                RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 0.5f + moveStep, obstacleMask);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 0.5f + moveStep, _blockingMask);
 
                 if (hit.collider == null)
                 {

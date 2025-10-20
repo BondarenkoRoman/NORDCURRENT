@@ -11,5 +11,3 @@ public static class ClearPlayerPrefsMenu
 		Debug.Log("PlayerPrefs Deleted");
 	}
 }
-
-

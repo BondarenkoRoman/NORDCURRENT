@@ -9,8 +9,6 @@ namespace Game.TankBehaviour
 {
     public class PlayerTank : Tank
     {
-        [Inject] private readonly IGameSessionService _gameSessionService;
-        
         protected override void TriggerEnter2DHandler(Collider2D other)
         {
             if (other.TryGetComponent<Tank>(out var Tank))
@@ -27,8 +25,7 @@ namespace Game.TankBehaviour
                 AngleRotation = Mathf.Atan2(transform.up.y, transform.up.x) * Mathf.Rad2Deg - 90f
             };
             Debug.LogError("Do player Save "+playerData.Position.X);
-            _gameSessionService.GameProgressData.PlayerTankData = playerData;
-            //gameProgressData.PlayerTankData = playerData;
+            gameProgressData.PlayerTankData = playerData;
         }
     }
 }
