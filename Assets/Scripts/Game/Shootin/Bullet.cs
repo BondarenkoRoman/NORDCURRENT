@@ -1,4 +1,5 @@
 using Game.Obstaclies;
+using Game.TankBehaviour;
 using UnityEngine;
 
 namespace Game.Shootin
@@ -15,7 +16,7 @@ namespace Game.Shootin
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.TryGetComponent<Obstacle>(out var obstacle) ||
-                other.TryGetComponent<Tank.Tank>(out var tank))
+                other.TryGetComponent<Tank>(out var tank))
             {
                 Destroy(gameObject);
             }

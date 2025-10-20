@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Game.TankBehaviour;
 using Game.TankStateMMachine.TankStates;
 using StateMachineManagment.States;
 
@@ -10,7 +11,7 @@ namespace Game.TankStateMMachine
         private Dictionary<Type, IState> States;
         private IState _activeState;
     
-        public TankStateMachine(Tank.Tank tank)
+        public TankStateMachine(Tank tank)
         {
             States = new Dictionary<Type, IState>()
             {

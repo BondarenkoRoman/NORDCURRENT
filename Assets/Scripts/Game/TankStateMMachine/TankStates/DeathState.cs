@@ -1,12 +1,13 @@
+using Game.TankBehaviour;
 using StateMachineManagment.States;
 
 namespace Game.TankStateMMachine.TankStates
 {
     public class DeathState : IState
     {
-        private readonly Tank.Tank _tank;
+        private readonly Tank _tank;
 
-        public DeathState(Tank.Tank tank)
+        public DeathState(Tank tank)
         {
             _tank = tank;
         }

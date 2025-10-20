@@ -1,16 +1,16 @@
 using StateMachineManagment.States;
 using UnityEngine;
 using Game.Obstaclies;
-using Game.Tank;
+using Game.TankBehaviour;
 
 namespace Game.TankStateMMachine.TankStates
 {
     public class ForceRotatorState : IState, IUpdateable
     {
-        private readonly Tank.Tank _tank;
+        private readonly Tank _tank;
         private readonly TankStateMachine _stateMachine;
         
-        public ForceRotatorState(Tank.Tank tank, TankStateMachine stateMachine)
+        public ForceRotatorState(Tank tank, TankStateMachine stateMachine)
         {
             _tank = tank;
             _stateMachine = stateMachine;

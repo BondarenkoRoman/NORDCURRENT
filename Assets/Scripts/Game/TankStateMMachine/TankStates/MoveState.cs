@@ -1,11 +1,12 @@
+using Game.TankBehaviour;
 using StateMachineManagment.States;
 
 namespace Game.TankStateMMachine.TankStates
 {
     public class MoveState : IState, IUpdateable
     {
-        private readonly Tank.Tank _tank;
-        public MoveState(Tank.Tank tank)
+        private readonly Tank _tank;
+        public MoveState(Tank tank)
         {
             _tank = tank;
         }

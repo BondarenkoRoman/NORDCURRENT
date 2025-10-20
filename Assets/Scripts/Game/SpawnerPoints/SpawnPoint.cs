@@ -1,3 +1,4 @@
+using Game.TankBehaviour;
 using UnityEngine;
 
 namespace Game.SpawnerPoints
@@ -8,7 +9,7 @@ namespace Game.SpawnerPoints
 
         private void OnTriggerStay2D(Collider2D other)
         {
-            if(other.TryGetComponent<Tank.Tank>(out var tank))
+            if(other.TryGetComponent<Tank>(out var tank))
             {
                 Reserved = true;
             }
@@ -16,7 +17,7 @@ namespace Game.SpawnerPoints
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if(other.TryGetComponent<Tank.Tank>(out var tank))
+            if(other.TryGetComponent<Tank>(out var tank))
             {
                 Reserved = false;
             }

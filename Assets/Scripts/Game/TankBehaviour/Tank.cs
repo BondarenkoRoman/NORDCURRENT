@@ -1,14 +1,14 @@
+using System;
 using Game.ForcRotator;
 using Game.Movement;
 using Game.TankStateMMachine;
 using Game.TankStateMMachine.TankStates;
+using Infrastructure.GameFactories;
 using Infrastructure.SaveLoad;
 using UnityEngine;
 using Zenject;
-using Infrastructure.GameFactories;
-using System;
 
-namespace Game.Tank
+namespace Game.TankBehaviour
 {
     public class Tank : MonoBehaviour, IProgressSaver
     {

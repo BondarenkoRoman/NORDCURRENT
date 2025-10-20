@@ -5,7 +5,7 @@ using Infrastructure.SaveLoad;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Tank
+namespace Game.TankBehaviour
 {
     public class PlayerTank : Tank
     {

@@ -2,13 +2,12 @@ using Game.Obstaclies;
 using Game.Shootin;
 using Game.TankStateMMachine.TankStates;
 using Infrastructure.Data;
-using Infrastructure.GameFactories;
 using Infrastructure.GameSession;
 using Infrastructure.SaveLoad;
 using UnityEngine;
 using Zenject;
 
-namespace Game.Tank
+namespace Game.TankBehaviour
 {
     public class AITank : Tank
     {
